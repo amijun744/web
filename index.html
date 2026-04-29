@@ -3,88 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Creative Engineer</title>
+    <title>Portfolio | Adaptive Theme</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <input type="checkbox" id="theme-toggle" class="theme-checkbox">
 
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="logo">JD<span>.</span></a>
-            <div class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#about">About</a>
-                <a href="#contact" class="cta-pill">Start a Project</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero">
-        <div class="container">
-            <div class="badge">Available for Q3 2026</div>
-            <h1>Crafting <span class="text-gradient">Digital</span> Brilliance.</h1>
-            <p>I blend technical precision with aesthetic excellence to build products that people love to use.</p>
-            <div class="hero-actions">
-                <a href="#work" class="btn-primary">View Portfolio</a>
-                <a href="#" class="btn-link">Download CV →</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="work" class="work">
-        <div class="container">
-            <div class="section-meta">
-                <h2>Featured Work</h2>
-                <div class="line"></div>
-            </div>
-            
-            <div class="work-grid">
-                <div class="project-card">
-                    <div class="image-box">
-                        <div class="overlay"><span>View Project</span></div>
-                    </div>
-                    <div class="project-content">
-                        <span class="category">Product Design</span>
-                        <h3>Neural Interface App</h3>
-                        <p>AI-driven dashboard for real-time data analysis.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="image-box">
-                        <div class="overlay"><span>View Project</span></div>
-                    </div>
-                    <div class="project-content">
-                        <span class="category">Development</span>
-                        <h3>SaaS Engine</h3>
-                        <p>High-performance backend for enterprise scale.</p>
+    <div class="site-wrapper">
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="#" class="logo">JD<span>.</span></a>
+                <div class="nav-right">
+                    <label for="theme-toggle" class="toggle-label">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </label>
+                    <div class="nav-links">
+                        <a href="#work">Work</a>
+                        <a href="#contact" class="cta-pill">Contact</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </nav>
 
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-main">
-                    <h2>Let's build something <span class="text-gradient">extraordinary.</span></h2>
-                    <a href="mailto:hello@domain.com" class="big-mail">hello@domain.com</a>
+        <header class="hero">
+            <div class="container">
+                <div class="badge">Theme-Aware Interface</div>
+                <h1>Design that <span class="text-gradient">Adapts</span>.</h1>
+                <p>A professional portfolio built to look stunning in both light and deep night modes.</p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn-primary">Explore Projects</a>
                 </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <small>Social</small>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Dribbble</a>
+            </div>
+        </header>
+
+        <section id="work" class="work">
+            <div class="container">
+                <div class="work-grid">
+                    <div class="project-card">
+                        <div class="image-box"></div>
+                        <div class="project-content">
+                            <span class="category">System Design</span>
+                            <h3>Adaptive Dashboard</h3>
+                        </div>
                     </div>
-                    <div class="link-group">
-                        <small>Local</small>
-                        <p>London, UK</p>
+                    <div class="project-card">
+                        <div class="image-box"></div>
+                        <div class="project-content">
+                            <span class="category">Web Architecture</span>
+                            <h3>Performance Engine</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-
+        </section>
+    </div>
 </body>
 </html>
