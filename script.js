@@ -1,75 +1,47 @@
-/**
- * 1. Theme Persistence
- * Saves the user's night/light mode preference to the browser
- */
-const themeToggle = document.querySelector('#theme-toggle');
-
-// Check for saved theme on page load
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-    themeToggle.checked = true;
-}
-
-// Listen for toggle changes
-themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-/**
- * 2. Scroll Reveal Animation
- * Triggers a "fade up" effect when elements enter the viewport
- */
-const revealElements = () => {
-    const reveals = document.querySelectorAll('.section, .project-card, .service-card');
-    
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150; // Delay in pixels before revealing
-
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('active');
-        }
-    });
-};
-
-/**
- * 3. Dynamic Navbar
- * Shrinks the navbar when the user scrolls down
- */
-const handleNavbar = () => {
-    const nav = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-};
-
-/**
- * Initialize Listeners
- */
-window.addEventListener('scroll', () => {
-    revealElements();
-    handleNavbar();
-});
-
-// Run on initial load
 document.addEventListener('DOMContentLoaded', () => {
-    // Manually trigger once to check items already in view
-    revealElements();
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+    const cursor = document.querySelector('.cursor');
+    const themeToggle = document.querySelector('#theme-toggle');
+
+    // 1. Smooth Cursor Follower
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Cursor interaction
+    document.querySelectorAll('a, label, .project-card').forEach(link => {
+        link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
+        link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+    });
+
+    // 2. Theme Persistence
+    if (localStorage.getItem('theme') === 'dark') themeToggle.checked = true;
+    themeToggle.addEventListener('change', () => {
+        localStorage.setItem('theme', themeToggle.checked ? 'dark' : 'light');
+    });
+
+    // 3. Intersection Observer for Scroll Animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .project-card, .service-card').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(40px)";
+        el.style.transition = "all 0.8s cubic-bezier(0.2, 1, 0.3, 1)";
+        observer.observe(el);
+    });
+
+    // Reveal Logic
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.active').forEach(el => {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
         });
     });
 });

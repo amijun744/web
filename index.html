@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Creative Engineer</title>
-    <script src="script.js"></script>
-</body>
-</html>
+    <title>Portfolio | Premium Experience</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="cursor"></div>
+
     <input type="checkbox" id="theme-toggle" class="theme-checkbox">
 
     <div class="site-wrapper">
@@ -25,7 +24,6 @@
                     <div class="nav-links">
                         <a href="#services">Services</a>
                         <a href="#work">Work</a>
-                        <a href="#experience">Experience</a>
                         <a href="#contact" class="cta-pill">Contact</a>
                     </div>
                 </div>
@@ -33,164 +31,56 @@
         </nav>
 
         <header class="hero">
+            <div class="hero-bg-blur"></div>
             <div class="container">
-                <div class="badge">Available for Projects 2026</div>
-                <h1>Crafting <span class="text-gradient">Digital</span> Brilliance.</h1>
-                <p>I blend technical precision with aesthetic excellence to build products that people love to use.</p>
-                <div class="hero-actions">
-                    <a href="#work" class="btn-primary">View Portfolio</a>
+                <div class="badge fade-in">Available for Projects 2026</div>
+                <h1 class="reveal-text">Designing <span class="text-gradient">Future</span> Interfaces.</h1>
+                <p class="fade-in">A digital architect blending technical mastery with visual storytelling.</p>
+                <div class="hero-actions fade-in">
+                    <a href="#work" class="btn-primary">Explore Work</a>
                     <a href="#" class="btn-secondary">Download CV</a>
                 </div>
             </div>
         </header>
 
-        <section class="skills">
-            <div class="container">
-                <div class="skills-wrap">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">UI/UX Design</span>
-                    <span class="skill-tag">Figma</span>
-                </div>
+        <section class="tech-stack container">
+            <div class="stack-track">
+                <span>React</span> <span>•</span> <span>TypeScript</span> <span>•</span> 
+                <span>Node.js</span> <span>•</span> <span>Next.js</span> <span>•</span> 
+                <span>Figma</span> <span>•</span> <span>Tailwind</span>
             </div>
         </section>
 
-        <section id="services" class="section">
-            <div class="container">
-                <div class="section-meta">
-                    <h2>Services</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="s-icon">✦</div>
-                        <h3>Product Design</h3>
-                        <p>High-fidelity wireframes and interactive prototypes that prioritize the user journey.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="s-icon">⚙</div>
-                        <h3>Web Development</h3>
-                        <p>Building responsive, fast, and SEO-optimized websites with modern tech stacks.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="s-icon">⚡</div>
-                        <h3>Optimization</h3>
-                        <p>Performance audits and speed improvements for existing web applications.</p>
-                    </div>
-                </div>
+        <section id="work" class="section container">
+            <div class="section-meta">
+                <h2>Selected Work</h2>
+                <div class="line"></div>
             </div>
-        </section>
-
-        <section id="work" class="section">
-            <div class="container">
-                <div class="section-meta">
-                    <h2>Selected Work</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="work-grid">
-                    <div class="project-card">
-                        <div class="image-box"></div>
-                        <div class="project-content">
-                            <span class="category">Development</span>
-                            <h3>Neural Analytics App</h3>
-                            <p>An AI-driven dashboard for complex data visualization.</p>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="image-box"></div>
-                        <div class="project-content">
-                            <span class="category">UI/UX Design</span>
-                            <h3>Fintech Core</h3>
-                            <p>Designing the interface for a global payment engine.</p>
-                        </div>
+            <div class="work-grid">
+                <div class="project-card">
+                    <div class="image-box"><div class="img-inner"></div></div>
+                    <div class="project-content">
+                        <span class="category">Development</span>
+                        <h3>Neural App</h3>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <div class="container">
-                <div class="section-meta">
-                    <h2>Experience</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-meta">
-                            <span class="year">2024 — Present</span>
-                            <span class="company">Tech Flow Studio</span>
-                        </div>
-                        <div class="time-content">
-                            <h4>Senior Frontend Developer</h4>
-                            <p>Leading UI engineering for global clients and building scalable design systems.</p>
-                        </div>
+                <div class="project-card">
+                    <div class="image-box"><div class="img-inner"></div></div>
+                    <div class="project-content">
+                        <span class="category">Design</span>
+                        <h3>Fintech UI</h3>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-meta">
-                            <span class="year">2022 — 2024</span>
-                            <span class="company">Nova Systems</span>
-                        </div>
-                        <div class="time-content">
-                            <h4>Fullstack Engineer</h4>
-                            <p>Developed core features for an AI analytics platform using React and Node.js.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="socials" class="section">
-            <div class="container">
-                <div class="section-meta">
-                    <h2>Connect</h2>
-                    <div class="line"></div>
-                </div>
-                <div class="social-grid">
-                    <a href="#" class="social-tile">
-                        <div class="tile-icon">in</div>
-                        <div class="tile-info">
-                            <span>Professional</span>
-                            <h4>LinkedIn</h4>
-                        </div>
-                        <div class="tile-arrow">↗</div>
-                    </a>
-                    <a href="#" class="social-tile">
-                        <div class="tile-icon">GH</div>
-                        <div class="tile-info">
-                            <span>Codebase</span>
-                            <h4>GitHub</h4>
-                        </div>
-                        <div class="tile-arrow">↗</div>
-                    </a>
-                    <a href="#" class="social-tile">
-                        <div class="tile-icon">𝕏</div>
-                        <div class="tile-info">
-                            <span>Thoughts</span>
-                            <h4>Twitter</h4>
-                        </div>
-                        <div class="tile-arrow">↗</div>
-                    </a>
                 </div>
             </div>
         </section>
 
         <footer id="contact">
             <div class="container">
-                <div class="footer-wrap">
-                    <h2>Have a project in mind?</h2>
-                    <a href="mailto:hello@domain.com" class="big-mail">hello@domain.com</a>
-                    <div class="footer-bottom">
-                        <p>&copy; 2026 Professional Portfolio</p>
-                        <div class="footer-legal">
-                            <a href="#">Privacy</a>
-                            <a href="#">Terms</a>
-                        </div>
-                    </div>
-                </div>
+                <a href="mailto:hello@domain.com" class="big-mail">Get in touch.</a>
             </div>
         </footer>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
