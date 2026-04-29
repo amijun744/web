@@ -1,86 +1,46 @@
-/* 1. Theme Variables (Default Light Mode) */
 :root {
+    /* Default Light Mode */
     --bg: #ffffff;
     --text-primary: #09090b;
     --text-secondary: #52525b;
     --card-bg: #f4f4f5;
-    --border: rgba(0, 0, 0, 0.1);
+    --border: rgba(0, 0, 0, 0.08);
     --accent: #6366f1;
-    --gradient-start: #6366f1;
-    --gradient-end: #a855f7;
     --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
-/* 2. Night Mode Variables (Triggered by Checkbox) */
+/* Night Mode Overrides */
 #theme-toggle:checked ~ .site-wrapper {
     --bg: #09090b;
     --text-primary: #fafafa;
     --text-secondary: #a1a1aa;
     --card-bg: #18181b;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.08);
     --nav-bg: rgba(9, 9, 11, 0.8);
 }
 
-/* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background 0.4s ease, color 0.4s ease; /* Smooth transition */
+    transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text-primary);
     font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
 }
 
-.site-wrapper {
-    min-height: 100vh;
-    background-color: var(--bg);
-}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
-/* Hide the checkbox */
-.theme-checkbox {
-    display: none;
-}
-
-/* Toggle Switch Styling */
-.toggle-label {
-    width: 50px;
-    height: 26px;
-    background: var(--card-bg);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 50px;
-    position: relative;
-    cursor: pointer;
-    border: 1px solid var(--border);
-}
-
-.toggle-label::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    background: var(--accent);
-    position: absolute;
-    border-radius: 50%;
-    left: 3px;
-    transition: 0.3s;
-}
-
-#theme-toggle:checked + .site-wrapper .toggle-label::after {
-    left: 27px;
-}
-
-/* Visual appearance of icons based on theme */
-.sun { font-size: 12px; }
-.moon { font-size: 12px; }
+/* Hide Toggle */
+.theme-checkbox { display: none; }
 
 /* Navbar */
 .navbar {
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -90,81 +50,100 @@ body {
     border-bottom: 1px solid var(--border);
 }
 
-.nav-content, .nav-right {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
+.nav-content, .nav-right { display: flex; align-items: center; justify-content: space-between; }
 .nav-right { gap: 2rem; }
 
-.logo {
-    font-weight: 800;
-    font-size: 1.4rem;
-    text-decoration: none;
-    color: var(--text-primary);
-}
-
+.logo { font-weight: 800; font-size: 1.4rem; text-decoration: none; color: var(--text-primary); }
 .logo span { color: var(--accent); }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
-    font-weight: 600;
     margin-left: 1.5rem;
-}
-
-/* Content Elements */
-.hero { padding: 12rem 0 6rem; }
-
-.text-gradient {
-    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    color: var(--text-secondary);
-    font-size: 1.2rem;
-    max-width: 500px;
-    margin: 2rem 0;
-}
-
-.btn-primary {
-    padding: 1rem 2rem;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Project Cards */
-.work-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding-bottom: 5rem;
+.cta-pill {
+    background: var(--text-primary);
+    color: var(--bg) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
 }
 
-.project-card {
+/* Theme Switch UI */
+.toggle-label {
+    width: 48px;
+    height: 24px;
     background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 20px;
     border: 1px solid var(--border);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    position: relative;
 }
 
-.image-box {
-    height: 250px;
-    background: var(--bg);
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border);
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    left: 3px;
+    transition: 0.3s;
 }
 
-.category {
+#theme-toggle:checked + .site-wrapper .toggle-label::after { left: 25px; }
+
+/* Hero */
+.hero { padding: 12rem 0 6rem; }
+.badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(99, 102, 241, 0.1);
     color: var(--accent);
+    border-radius: 50px;
     font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }
+
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; }
+.text-gradient { background: linear-gradient(90deg, var(--accent), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.hero-actions { display: flex; gap: 1rem; margin-top: 2.5rem; }
+.btn-primary { padding: 1rem 2rem; background: var(--accent); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; }
+.btn-secondary { padding: 1rem 2rem; border: 1px solid var(--border); color: var(--text-primary); text-decoration: none; border-radius: 10px; }
+
+/* Work & Social Grids */
+.section-meta { display: flex; align-items: center; gap: 2rem; margin: 4rem 0 2rem; }
+.line { height: 1px; flex-grow: 1; background: var(--border); }
+
+.work-grid, .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+.project-card, .social-tile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    border-radius: 24px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card:hover, .social-tile:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+.image-box { height: 200px; background: var(--bg); border-radius: 12px; margin-bottom: 1.5rem; border: 1px solid var(--border); }
+
+/* Social Tile Specifics */
+.social-tile { display: flex; align-items: center; }
+.tile-icon { width: 40px; height: 40px; background: var(--bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 1rem; color: var(--accent); font-weight: 800; }
+.tile-arrow { margin-left: auto; color: var(--text-secondary); }
+
+/* Footer */
+footer { padding: 8rem 0; border-top: 1px solid var(--border); }
+.big-mail { font-size: clamp(1.5rem, 5vw, 3rem); font-weight: 800; color: var(--text-primary); text-decoration: none; border-bottom: 3px solid var(--accent); }
+.footer-bottom { margin-top: 4rem; color: var(--text-secondary); font-size: 0.8rem; }
